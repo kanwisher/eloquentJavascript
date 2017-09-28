@@ -29,3 +29,25 @@ console.log(new Vector(3, 4).length);
 console.log(map.hasOwnProperty("toString"));
 // → false
 This method tells us whether the object itself has the property, without looking at its prototypes. This is often a more useful piece of information than what the in operator gives us.
+
+
+function MultiplicatorUnitFailure() {}
+
+function primitiveMultiply(a, b) {
+  if (Math.random() < 0.5)
+    return a * b;
+  else
+    throw new MultiplicatorUnitFailure();
+}
+
+function reliableMultiply(a, b) {
+  try{
+    return primitiveMultiply(a, b);
+  }catch(e){
+    console.log(e);
+  	return reliableMultiply(a, b);
+  }
+}
+
+console.log(reliableMultiply(8, 8));
+// → 64
