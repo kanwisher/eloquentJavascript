@@ -24,3 +24,8 @@ console.log(new Vector(1, 2).minus(new Vector(2, 3)));
 // → Vector{x: -1, y: -1}
 console.log(new Vector(3, 4).length);
 // → 5
+
+
+console.log(map.hasOwnProperty("toString"));
+// → false
+This method tells us whether the object itself has the property, without looking at its prototypes. This is often a more useful piece of information than what the in operator gives us.
